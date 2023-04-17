@@ -22,9 +22,32 @@ namespace Toys.Pages
 	/// </summary>
 	public partial class ManePage : Page
 	{
+		public static ObservableCollection<Product> products { get; set; }
 		public ManePage(User user)
 		{
 			InitializeComponent();
+			products = new ObservableCollection<Product>(BDConnection.connection.Product.ToList());
+			DataContext = this;
+		}
+
+		private void btnADD_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnBack_Click(object sender, RoutedEventArgs e)
+		{
+			NavigationService.Navigate(new AuthorisPage());
+		}
+
+		private void TbSearch_SelectionChanged(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void lvCL_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+
 		}
 	}
 }
